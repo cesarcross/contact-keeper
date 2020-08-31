@@ -98,7 +98,7 @@ const AuthState = (props) => {
     <AuthContext.Provider
       value={{
         token: state.token,
-        isAuthenticade: state.isAuthenticade,
+        isAuthenticated: state.isAuthenticated,
         loading: state.loading,
         user: state.user,
         error: state.error,
