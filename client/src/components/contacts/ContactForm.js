@@ -30,6 +30,7 @@ export const ContactForm = () => {
   });
 
   const { name, email, phone, type } = contact;
+  console.log(contact);
   // const { name, email, phone, type } = {...contact};
 
   const onChange = (e) =>

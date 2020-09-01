@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import ContactContext from "../../context/contact/contactContext";
 
-export const ContactItem = ({ contact }) => {
+const ContactItem = ({ contact }) => {
   const contactContext = useContext(ContactContext);
 
   const { deleteContact, setCurrent, clearCurrent } = contactContext;

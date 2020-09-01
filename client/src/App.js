@@ -19,29 +19,25 @@ if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
 
-const App = () => {
-  return (
-    <AuthState>
-      <ContactState>
-        <AlertState>
-          <Router>
-            <>
-              <Navbar />
-              <div className="container">
-                <Alerts />
-                <Switch>
-                  <PrivateRoute exact path="/" component={Home} />
-                  <Route exact path="/about" component={About} />
-                  <Route exact path="/register" component={Register} />
-                  <Route exact path="/login" component={Login} />
-                </Switch>
-              </div>
-            </>
-          </Router>
-        </AlertState>
-      </ContactState>
-    </AuthState>
-  );
-};
+const App = () => (
+  <AuthState>
+    <ContactState>
+      <AlertState>
+        <Router>
+          <Navbar />
+          <div className="container">
+            <Alerts />
+            <Switch>
+              <PrivateRoute exact path="/" component={Home} />
+              <Route exact path="/about" component={About} />
+              <Route exact path="/register" component={Register} />
+              <Route exact path="/login" component={Login} />
+            </Switch>
+          </div>
+        </Router>
+      </AlertState>
+    </ContactState>
+  </AuthState>
+);
 
 export default App;

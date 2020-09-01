@@ -1,16 +1,18 @@
 const express = require("express");
-const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+
 const config = require("config");
-const auth = require("../middleware/auth");
 const { check, validationResult } = require("express-validator");
 
+const auth = require("../middleware/auth");
 const User = require("../models/User");
 
-// @route   GET api/auth
-// @desc    Get logged in user
-// @access  Private
+const router = express.Router();
+
+// @route     GET api/auth
+// @desc      Get logged in user
+// @access    Private
 router.get("/", auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");
@@ -21,9 +23,9 @@ router.get("/", auth, async (req, res) => {
   }
 });
 
-// @route   POST api/auth
-// @desc    Auth user & get token
-// @access  Public
+// @route     POST api/auth
+// @desc      Auth user & get token
+// @access    Public
 router.post(
   "/",
   [
@@ -61,6 +63,7 @@ router.post(
         payload,
         config.get("jwtSecret"),
         {
+          // expiresIn: 3600,  --- > Good value to use in production
           expiresIn: 360000,
         },
         (err, token) => {
