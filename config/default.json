@@ -1,4 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://cesar:cesar123@cluster0.ameoy.mongodb.net/<dbname>?retryWrites=true&w=majority",
+  "mongoURI": "mongodb+srv://cesar:cesar123@cluster0.ameoy.mongodb.net/contactkeeper?retryWrites=true&w=majority",
   "jwtSecret": "secret"
 }
